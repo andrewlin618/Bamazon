@@ -31,11 +31,13 @@ connection.connect(function (err) {
 
 function askUser(result) {
 
-    // Ask for product ID:
+    // Ask for product ID;
     inquirer.prompt({
         name: "id",
         message: "What do you want to buy (item-id)?",
     }).then(function (answer) {
+
+        // Check the validation of ID;
         var check = answer.id > 0 && answer.id <= 10;
         if (check) {
             var productID = answer.id;
@@ -46,11 +48,13 @@ function askUser(result) {
             console.log(`You want to buy ${productPicked}.`);
             console.log(`We have ${productCount} ${productPicked}s in stock.\n`);
 
-            // Ask for amount：
+            // Ask for amount;
             inquirer.prompt({
                 name: "amount",
                 message: `How many ${productPicked}s do you want?`,
             }).then(function (answer) {
+
+                // Check the stock;
                 if (answer.amount > productCount) {
                     console.log("==============================================");
                     console.log("Insufficient quantity!");
@@ -72,8 +76,10 @@ function askUser(result) {
                     } else {
                         console.log(`Now only ${productCount-answer.amount} ${productPicked}s in stock.\n`);
                     }
-                    var number = productCount-answer.amount; 
+                    var number = productCount - answer.amount;
                     console.log(number);
+
+                    // Update stock;
                     connection.query(
                         "UPDATE products SET ? WHERE ?",
                         [{
