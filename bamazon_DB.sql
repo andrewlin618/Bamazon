@@ -26,6 +26,4 @@ VALUES
     ("github-tshirt", "clothes", 20, 1000),
     ("ironman-suit", "clothes", 2000000, 3),
     ("manatee", "pet", 20000, 5),
-    ("Mew", "pokemon", 200000000, 1) -- ### Alternative way to insert more than one row
-    -- INSERT INTO products (flavor, price, quantity)
-    -- VALUES ("vanilla", 2.50, 100), ("chocolate", 3.10, 120), ("strawberry", 3.25, 75);
+    ("Mew", "pokemon", 200000000, 1)
