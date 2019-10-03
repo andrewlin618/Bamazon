@@ -137,10 +137,16 @@ function addNewProduct() {
             message: "How many do you want?"
         }
     ]).then(function (answer) {
-        connection.query("INSERT INTO products VALUES (answer.product,answer.department,answer.price,answer.quantity)", function (err, res) {
-            if (err) throw err;
-            console.table(res);
-            askManager();
-        });
+        connection.query(
+            "INSERT INTO products SET ?", {
+                product_name: answer.product,
+                department_name: answer.department,
+                price: answer.price,
+                stock_quantity: answer.quantity
+            },
+            function (err, res) {
+                if (err) throw err;
+                askManager();
+            });
     });
 }

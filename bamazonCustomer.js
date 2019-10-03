@@ -53,7 +53,6 @@ function askUser(result) {
                 name: "amount",
                 message: `How many ${productPicked}s do you want?`,
             }).then(function (answer) {
-
                 // Check the stock;
                 if (answer.amount > productCount) {
                     console.log("==============================================");
@@ -77,8 +76,6 @@ function askUser(result) {
                         console.log(`Now only ${productCount-answer.amount} ${productPicked}s in stock.\n`);
                     }
                     var number = productCount - answer.amount;
-                    console.log(number);
-
                     // Update stock;
                     connection.query(
                         "UPDATE products SET ? WHERE ?",
