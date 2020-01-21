@@ -1,6 +1,6 @@
 # Bamazon
 
-check screenshots folder for screenshots
+Check screenshots folder for screenshots
 
 1. Successfully built the database;
 
